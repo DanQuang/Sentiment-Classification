@@ -1,7 +1,7 @@
 import torch
 from torch import nn 
 import torch.nn.functional as F
-from text_module.init_embedding import build_text_embbeding
+from text_module.init_embedding import build_text_embedding
 
 class GRU(nn.Module):
     def __init__(self, config):
@@ -11,7 +11,7 @@ class GRU(nn.Module):
         self.hidden_units = config["model"]["hidden_units"]
         self.dropout = config["model"]["dropout"]
         self.embedding_dim = config["text_embedding"]["embedding_dim"]
-        self.text_embedding = build_text_embbeding(config)
+        self.text_embedding = build_text_embedding(config)
         self.gru = nn.GRU(self.embedding_dim, self.hidden_units,
                           num_layers=config['model']['num_layers'],dropout=self.dropout)
         
