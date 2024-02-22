@@ -1,1 +1,29 @@
-data_path: /content/data/ner_dataset.csv
+dataset:
+  dataset_folder: /content/drive/MyDrive/DS201/Data/UIT-VSFC/csv-files
+  train_path: train.csv
+  valid_path: dev.csv
+  test_path: test.csv
+
+model:
+  model_name: RNN # RNN, LSTM, GRU
+  hidden_units: 512
+  num_layers: 1
+  dropout: 0.1
+
+text_embedding:
+  type: word_embedding # word_embedding, count_vector
+  embedding_dim: 50 
+  max_length: 128
+  dropout: 0.1
+
+train_batch: 128
+dev_batch: 128
+test_batch: 128
+save_path: ./checkpoint
+
+num_labels: 3
+patience: 5
+learning_rate: 0.001
+num_epochs: 5
+seed: 42
+best_metric: accuracy # accuracy, f1, precision, recall
