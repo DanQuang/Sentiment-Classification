@@ -22,10 +22,10 @@ class MyDataset(Dataset):
     def __getitem__(self, index):
         return {
             "sentence": self.sentences[index],
-            "sentiment": self.sentiments[index]
+            "label": self.sentiments[index]
         }
     
-class MyDataLoader:
+class Load_Data:
     def __init__(self, config):
         self.train_batch = config["train_batch"]
         self.dev_batch = config["dev_batch"]

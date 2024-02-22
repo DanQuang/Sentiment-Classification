@@ -10,7 +10,7 @@ class WordEmbedding(nn.Module):
         self.max_length = config["text_embedding"]["max_length"]
         self.embedding_dim = config["text_embedding"]["embedding_dim"]
         self.embedding = nn.Embedding(self.vocab.vocab_size(), self.embedding_dim, self.vocab.pad_token_idx())
-        self.dropout = config["text_embedding"]["dropout"]
+        self.dropout = nn.Dropout(config["text_embedding"]["dropout"])
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
 
     def padding(self, array, max_length, padding_value):
@@ -24,7 +24,7 @@ class WordEmbedding(nn.Module):
         
     def forward(self, input_texts):
         sequence_vectors = []
-        for input_text in input_text:
+        for input_text in input_texts:
             tokens_to_ids = self.vocab.convert_tokens_to_ids(input_text.split())
             padding_squence = self.padding(tokens_to_ids, self.max_length, self.vocab.pad_token_idx())
             sequence_vectors.append(padding_squence)

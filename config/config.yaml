@@ -1,7 +1,7 @@
 dataset:
-  dataset_folder: /content/drive/MyDrive/DS201/Data/UIT-VSFC/csv-files
+  dataset_folder: /content/drive/MyDrive/DS201_personal/Data/UIT-VSFC/csv-files
   train_path: train.csv
-  valid_path: dev.csv
+  dev_path: dev.csv
   test_path: test.csv
 
 model:
@@ -11,7 +11,7 @@ model:
   dropout: 0.1
 
 text_embedding:
-  type: word_embedding # word_embedding, count_vector
+  type_embedding: word_embedding # word_embedding, count_vector
   embedding_dim: 50 
   max_length: 128
   dropout: 0.1
